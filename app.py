@@ -30,6 +30,7 @@ app_caption = st.secrets.get("APP_CAPTION", "🌐 An AI-powered chatbot to retri
 # Override the placeholder title
 st.title(app_title)
 st.caption(app_caption)
+footer_slot = st.empty()
 
 client = OpenAI(api_key=openai_api_key)
 
@@ -65,22 +66,25 @@ if prompt := st.chat_input("Your message"):
     else:
         st.error("⚠️ Assistant is still processing. Try again.")
 
-footer = """
-<style>
-.footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    padding: 0.5rem;
-    font-size: 0.8rem;
-    color: gray;
-    z-index: 100;
-}
-</style>
-<div class="footer">
-    Built by Oliver Unverdorben · Powered by OpenAI · © 2024
-</div>
-"""
-st.markdown(footer, unsafe_allow_html=True)
+footer_slot.markdown(
+    """
+    <style>
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+        color: gray;
+        z-index: 100;
+    }
+    </style>
+    <div class="footer">
+        Built by Oliver Unverdorben · Powered by OpenAI · © 2024
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
