@@ -65,13 +65,25 @@ if prompt := st.chat_input("Your message"):
     else:
         st.error("⚠️ Assistant is still processing. Try again.")
 
-st.markdown(
-    """
-    <hr style="margin-top:2em">
-    <div style='text-align: center; font-size: 0.85em; color: gray;'>
-        Built by Oliver Unverdorben · Powered by OpenAI · © 2024
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+# Simulate sticky footer at the bottom of the page
+footer = """
+<style>
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f0f2f6;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    color: gray;
+    z-index: 100;
+}
+</style>
+<div class="footer">
+    Built by Oliver Unverdorben · Powered by OpenAI · © 2024
+</div>
+"""
+st.markdown(footer, unsafe_allow_html=True)
 
