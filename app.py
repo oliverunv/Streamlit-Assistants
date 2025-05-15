@@ -38,7 +38,7 @@ if "thread_id" not in st.session_state:
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "Ask me anything about the Repertoire!"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Ask me anything about Children and Armed Conflict!"}]
 
 # Show past messages
 for message in st.session_state.messages:
