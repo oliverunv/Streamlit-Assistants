@@ -17,23 +17,21 @@ def clean_text_content(content_blocks):
             cleaned_text += block.text.value
     return cleaned_text.strip()
 
-load_dotenv()
-st.set_page_config(page_title="Security Council Repertoire Assistant", layout="wide")
-
-
-# Dynamic values from secrets
-APP_TITLE = st.secrets.get("APP_TITLE", "💬 UNSC Repertoire Assistant")
-APP_CAPTION = st.secrets.get("APP_CAPTION", "🌐 An AI-powered chatbot to retrieve information from the Repertoire of Practice of the Security Council")
-ASSISTANT_ID = st.secrets["ASSISTANT_ID"]
-OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
 # Set up page
-st.set_page_config(page_title=APP_TITLE, layout="wide")
-st.title(APP_TITLE)
-st.caption(APP_CAPTION)
+st.set_page_config(page_title="Security Council Repertoire Assistant", layout="wide")
 
-# Initialize OpenAI
-client = OpenAI(api_key=OPENAI_API_KEY)
+# Dynamic values from secrets
+openai_api_key = st.secrets["OPENAI_API_KEY"]
+assistant_id = st.secrets["ASSISTANT_ID"]
+app_title = st.secrets.get("APP_TITLE", "💬 UNSC Repertoire Assistant")
+app_caption = st.secrets.get("APP_CAPTION", "🌐 An AI-powered chatbot to retrieve information from the Repertoire of Practice of the Security Council")
+
+# Override the placeholder title
+st.title(app_title)
+st.caption(app_caption)
+
+client = OpenAI(api_key=openai_api_key)
 
 # Initialize session state
 if "thread_id" not in st.session_state:
