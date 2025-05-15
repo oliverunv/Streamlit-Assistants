@@ -30,7 +30,6 @@ app_caption = st.secrets.get("APP_CAPTION", "🌐 An AI-powered chatbot to retri
 # Override the placeholder title
 st.title(app_title)
 st.caption(app_caption)
-footer_slot = st.empty()
 
 client = OpenAI(api_key=openai_api_key)
 
@@ -66,7 +65,7 @@ if prompt := st.chat_input("Your message"):
     else:
         st.error("⚠️ Assistant is still processing. Try again.")
 
-footer_slot.markdown(
+st.markdown(
     """
     <style>
     .footer {
@@ -78,7 +77,9 @@ footer_slot.markdown(
         padding: 0.5rem;
         font-size: 0.8rem;
         color: gray;
-        z-index: 100;
+        z-index: 999;
+        background-color: transparent;
+        backdrop-filter: blur(2px);
     }
     </style>
     <div class="footer">
