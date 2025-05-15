@@ -65,7 +65,6 @@ if prompt := st.chat_input("Your message"):
     else:
         st.error("⚠️ Assistant is still processing. Try again.")
 
-# Simulate sticky footer at the bottom of the page
 footer = """
 <style>
 .footer {
@@ -73,7 +72,6 @@ footer = """
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #f0f2f6;
     text-align: center;
     padding: 0.5rem;
     font-size: 0.8rem;
@@ -86,4 +84,3 @@ footer = """
 </div>
 """
 st.markdown(footer, unsafe_allow_html=True)
-
