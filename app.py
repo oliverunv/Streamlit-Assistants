@@ -21,14 +21,19 @@ load_dotenv()
 st.set_page_config(page_title="Security Council Repertoire Assistant", layout="wide")
 
 
-# Title and caption
-st.title("💬 UNSC Repertoire Assistant")
-st.caption("🌐 An AI-powered chatbot to retrieve information from the Repertoire of Practice of the Security Council")
+# Dynamic values from secrets
+APP_TITLE = st.secrets.get("APP_TITLE", "💬 UNSC Repertoire Assistant")
+APP_CAPTION = st.secrets.get("APP_CAPTION", "🌐 An AI-powered chatbot to retrieve information from the Repertoire of Practice of the Security Council")
+ASSISTANT_ID = st.secrets["ASSISTANT_ID"]
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
-# Setup OpenAI client
-openai_api_key = st.secrets["OPENAI_API_KEY"]
-assistant_id = st.secrets["ASSISTANT_ID"]
-client = OpenAI(api_key=openai_api_key)
+# Set up page
+st.set_page_config(page_title=APP_TITLE, layout="wide")
+st.title(APP_TITLE)
+st.caption(APP_CAPTION)
+
+# Initialize OpenAI
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 # Initialize session state
 if "thread_id" not in st.session_state:
