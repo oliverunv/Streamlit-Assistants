@@ -64,3 +64,14 @@ if prompt := st.chat_input("Your message"):
                 break
     else:
         st.error("⚠️ Assistant is still processing. Try again.")
+
+st.markdown(
+    """
+    <hr style="margin-top:2em">
+    <div style='text-align: center; font-size: 0.85em; color: gray;'>
+        Built by Oliver Unverdorben · Powered by OpenAI · © 2024
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
