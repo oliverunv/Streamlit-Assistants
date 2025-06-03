@@ -5,9 +5,12 @@ import os
 import pandas as pd
 
 # Step 1: Connect to Weaviate
+cluster_url = os.getenv("WEAVIATE_URL")
+api_key = os.getenv("WEAVIATE_API_KEY")
+
 client = weaviate.connect_to_weaviate_cloud(
-    cluster_url="o7el2rkbqkcwxdbyyj8goq.c0.us-west3.gcp.weaviate.cloud",
-    auth_credentials=Auth.api_key("nhHaG8JRrzSUdmAoaWxkZu8EisYk73ellRfC"),
+    cluster_url=cluster_url,
+    auth_credentials=Auth.api_key(api_key),
 )
 
 # Step 2: Ensure schema has the correct metadata properties
