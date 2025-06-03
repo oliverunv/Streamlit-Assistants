@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 # Set up page
 st.set_page_config(page_title="Security Council Repertoire Assistant", layout="wide")
 st.title("💬 UNSC Repertoire Assistant")
-st.caption("🌐 An AI-powered chatbot to retrieve information from the Repertoire of Practice of the Security Council")
+st.caption("🌐 An AI-powered chatbot to retrieve information from the 2022 Repertoire of Practice of the Security Council (26th Supplement)")
 
 # Initialize API clients
 openai_client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
