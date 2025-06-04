@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 # Set up page
 st.set_page_config(page_title="Security Council Repertoire Assistant", layout="wide")
 st.title("💬 UNSC Repertoire Assistant")
-st.caption("🌐 An AI-powered chatbot to retrieve information from the 2022 Repertoire of Practice of the Security Council (26th Supplement)")
+st.caption("🌐 An AI-powered chatbot to retrieve information from the 2022 Repertoire of Practice of the Security Council (25th Supplement)")
 
 # Initialize API clients
 openai_client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
@@ -57,7 +57,7 @@ def retrieve_context(query, top_k=10):
     return context
 
 # --- System prompt ---
-system_prompt = """You are an expert assistant trained to provide factual, concise, and strictly neutral responses based only on the content retrieved from the 26th Supplement (2022) of the Repertoire of Practice of the Security Council.
+system_prompt = """You are an expert assistant trained to provide factual, concise, and strictly neutral responses based only on the content retrieved from the 25th Supplement (2022) of the Repertoire of Practice of the Security Council.
 
 You must follow the structure and language of the Repertoire closely and avoid adding your own interpretations or opinions.
 
@@ -72,7 +72,7 @@ You must follow the structure and language of the Repertoire closely and avoid a
 
 ---
 
-**Document Structure and Metadata (26th Supplement, 2022):**  
+**Document Structure and Metadata (25th Supplement, 2022):**  
 Each paragraph retrieved is enriched with metadata to help identify its place in the Repertoire:
 
 - **Part**: One of the ten main Parts of the Repertoire (e.g., *Part V: Functions and Powers*).  
@@ -143,7 +143,7 @@ def ask_question_with_context(user_input):
 
 # --- Session state ---
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "Ask me anything about the 26th Supplement of the Repertoire!"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Ask me anything about the 25th Supplement of the Repertoire!"}]
 if "conversation_history" not in st.session_state:
     st.session_state.conversation_history = []
 
