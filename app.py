@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 # Set up page
 st.set_page_config(page_title="Security Council Repertoire Assistant", layout="wide")
 st.title("💬 UNSC Repertoire Assistant")
-st.caption("🌐 An AI-powered chatbot to retrieve information from the 2022 Repertoire of Practice of the Security Council (25th Supplement)")
+st.caption("🌐 An AI-powered chatbot to retrieve information from the 2022 Repertoire of Practice of the Security Council (26th Supplement)")
 
 # Initialize API clients
 openai_client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
@@ -143,7 +143,7 @@ def ask_question_with_context(user_input):
 
 # --- Session state ---
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "Ask me anything about the 25th Supplement of the Repertoire!"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Ask me anything about the 26th Supplement of the Repertoire!"}]
 if "conversation_history" not in st.session_state:
     st.session_state.conversation_history = []
 
