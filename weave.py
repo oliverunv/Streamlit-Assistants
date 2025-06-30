@@ -1,10 +1,12 @@
 import weaviate
 from weaviate.classes.init import Auth
 from weaviate.classes.config import Property, DataType
+from dotenv import load_dotenv
 import os
 import pandas as pd
 
 # Step 1: Connect to Weaviate
+load_dotenv()
 cluster_url = os.getenv("WEAVIATE_URL")
 api_key = os.getenv("WEAVIATE_API_KEY")
 
@@ -48,20 +50,6 @@ metadata_lookup = {
     }
     for _, row in df.iterrows()
 }
-
-# Set the filename to delete
-filename_to_delete = "26th_Supplement_Part_I_Section_1_Western_Sahara.docx"
-deleted_count = 0
-
-# Loop through and delete matching objects
-for obj in collection.iterator():
-    fn = obj.properties.get("metadata", {}).get("filename", "")
-    if fn == filename_to_delete:
-        collection.data.delete_by_id(obj.uuid)
-        deleted_count += 1
-        print(f"🗑️ Deleted object: {obj.uuid}")
-
-print(f"\n✅ Done! Deleted {deleted_count} objects with filename: {filename_to_delete}")
 
 # Step 4: Iterate and update
 updated_count = 0
