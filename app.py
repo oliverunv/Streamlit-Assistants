@@ -187,7 +187,7 @@ st.markdown(
     }
     </style>
     <div class="footer">
-        Built by Oliver Unverdorben · Powered by OpenAI · © 2024
+        Built by Oliver Unverdorben · Powered by OpenAI · © 2025
     </div>
     """,
     unsafe_allow_html=True
